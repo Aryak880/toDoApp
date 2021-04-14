@@ -30,7 +30,7 @@ const ToDoFunction = () => {
         setText('')
     }
 
-    let tasks = taskArray.map(e => <TaskCard time={e.time} text={e.text} handleDelete={handleDelete}/>)
+    let tasks = taskArray.map(e => <TaskCard key={e.time} time={e.time} text={e.text} handleDelete={handleDelete}/>)
 
     return (
         <div className="container">
