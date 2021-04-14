@@ -1,0 +1,64 @@
+.inputCard{
+    height: 30vh;
+    background: linear-gradient(30deg, rgb(251, 255, 0) 50%, rgba(0, 0, 0, 0.719) 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+input, button {
+    height: 3rem;
+    margin: 1rem;
+    border-radius: 15px;
+    outline: none;
+    border: solid 2px gray;
+    font-size: 1.rem;
+    padding: 0.6rem;
+}
+
+input[type="text"]:focus, input[type=text]:active {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+button:focus {
+    background: white;
+    color: black;
+}
+
+form {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+form #inputTask {
+    width: 40%;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.4);
+}
+
+form #Submit {
+    background: rgba(73, 219, 37, 0.705)
+}
+
+/* For task */
+
+.taskCard{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    margin: 1rem;
+    background: rgba(199, 199, 39, 0.333);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+}
+
+.taskCard button {
+    background: rgba(236, 24, 24, 0.685);
+}
