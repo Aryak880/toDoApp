@@ -1,11 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TaskCard from './taskCard'
 import './components.css'
 
 const ToDoFunction = () => {
     const [text, setText] = useState('')
-    const [taskArray, setTaskArray] = useState([])
-    
+    const [taskArray, setTaskArray] = useState(localStorage.getItem('taskArray') ? JSON.parse(localStorage.getItem('taskArray')) : [])
+
+    useEffect(() => {
+        const temp = JSON.stringify(taskArray)
+        localStorage.setItem('taskArray', temp)
+    }, [taskArray])
 
     const handleDelete = (time) => {
         const latestTask = taskArray.filter(e => e.time !== time)
