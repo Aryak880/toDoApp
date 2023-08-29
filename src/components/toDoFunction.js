@@ -11,9 +11,26 @@ const ToDoFunction = () => {
         localStorage.setItem('taskArray', temp)
     }, [taskArray])
 
+    const saveSortedTask = (arr) => {
+        const newShorted = arr.sort((a,b) => a.order - b.order)
+        setTaskArray(newShorted)
+    }
+
+    const handleComplete = (data) => {
+        const Index = taskArray.findIndex(e => e.time === data)
+        const temp = {
+            text: taskArray[Index].text,
+            time: taskArray[Index].time,
+            completed: !taskArray[Index].completed,
+            order: taskArray[Index].order
+        }
+        const AA = taskArray.filter(e => e.time !== data)
+        saveSortedTask([...AA, temp])
+    }
+
     const handleDelete = (time) => {
         const latestTask = taskArray.filter(e => e.time !== time)
-        setTaskArray(latestTask)
+        saveSortedTask(latestTask)
     }
     
     const inputHandler = (event) => {
@@ -28,13 +45,14 @@ const ToDoFunction = () => {
         const newTask = {
             text: text,
             time: newTime,
-            completed: false
+            completed: false,
+            order: taskArray.length+1
         }
-        setTaskArray([...taskArray, newTask])
+        saveSortedTask([...taskArray, newTask])
         setText('')
     }
 
-    let tasks = taskArray.map(e => <TaskCard key={e.time} time={e.time} text={e.text} handleDelete={handleDelete}/>)
+    let tasks = taskArray.map(e => <TaskCard completed={e.completed} key={e.time} time={e.time} text={e.text} handleDelete={handleDelete} handleComplete={handleComplete}/>)
 
     return (
         <div className="container">
