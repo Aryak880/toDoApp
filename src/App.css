@@ -9,10 +9,13 @@ html {
 
 .task-container {
     min-height: 70vh;
-    background: linear-gradient(-90deg,rgba(45, 11, 167, 0.911) 70%, rgba(224, 30, 137, 0.856) 0%);
+    /* background: linear-gradient(-90deg,rgba(45, 11, 167, 0.911) 70%, rgba(224, 30, 137, 0.856) 0%); */
+    /* background: linear-gradient(0deg, hsla(332, 53%, 82%, 1) 0%, hsla(176, 57%, 89%, 1) 100%); */
+    background: linear-gradient(180deg, hsla(186, 33%, 94%, 1) 0%, hsla(216, 41%, 79%, 1) 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 1.8rem;
     justify-content: center;
+    border-top: 3px solid #000;
 }

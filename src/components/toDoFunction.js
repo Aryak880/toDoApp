@@ -38,7 +38,7 @@ const ToDoFunction = () => {
     }
 
     const submitHandler = (event) => {
-        const newTime = new Date().toUTCString()
+        const newTime = new Date().toLocaleString(undefined, {timeZone: 'Asia/Kolkata'})
         event.preventDefault()
         setText(event.target.value)
 
@@ -52,7 +52,7 @@ const ToDoFunction = () => {
         setText('')
     }
 
-    let tasks = taskArray.map(e => <TaskCard completed={e.completed} key={e.time} time={e.time} text={e.text} handleDelete={handleDelete} handleComplete={handleComplete}/>)
+    let tasks = taskArray.map(e => <TaskCard completed={e.completed} key={e.time} order={e.order} time={e.time} text={e.text} handleDelete={handleDelete} handleComplete={handleComplete}/>)
 
     return (
         <div className="container">
